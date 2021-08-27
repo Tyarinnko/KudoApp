@@ -1,0 +1,9 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h2>地図作成</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">作成</button>
+    </form>
+{% endblock %}
