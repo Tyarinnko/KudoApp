@@ -7,45 +7,46 @@ from django.http import request
 from django.urls.base import reverse_lazy
 from django.views.generic.base import ContextMixin
 from django.views.generic.edit import DeleteView
-from app.forms import PostForm
+from app.forms import MapForm
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
-from .models import Post
+from .models import Map
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.views.generic import ListView,DetailView,CreateView,UpdateView
 
-class post_list(ListView):
-    model = Post
-    queryset = Post.objects.order_by('published_date')
+class MapList(ListView):
+    model = Map
+    queryset = Map.objects.order_by('-created_date')
 
-class post_detail(DetailView):
-    model = Post
+class MapDetail(DetailView):
+    template_name = 'app/map_detail.html'
+    model = Map
 
-class post_new(CreateView):
-    template_name = 'app/post_edit.html'
-    model = Post
-    form_class = PostForm
+class MapNew(CreateView):
+    template_name = 'app/map_edit.html'
+    model = Map
+    form_class = MapForm
     success_url = '/'
 
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id
         form.instance.published_date = timezone.now()
-        return super(post_new,self).form_valid(form)
+        return super(MapNew,self).form_valid(form)
 
-class post_edit(UpdateView):
-    template_name = 'app/post_edit.html'
-    model = Post
-    form_class = PostForm
+class MapEdit(UpdateView):
+    template_name = 'app/map_edit.html'
+    model = Map
+    form_class = MapForm
     success_url = '/'
 
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id
         form.instance.published_date = timezone.now()
-        return super(post_edit,self).form_valid(form)
+        return super(MapEdit,self).form_valid(form)
 
-class post_delete(DeleteView):
-    template_name = 'blog/post_delete.html'
-    model = Post
-    form_class = PostForm
+class MapDelete(DeleteView):
+    template_name = 'app/map_delete.html'
+    model = Map
+    form_class = MapForm
     success_url = '/'

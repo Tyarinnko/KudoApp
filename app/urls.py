@@ -2,10 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.post_list.as_view(), name='post_list'),
-    path('post/<int:pk>/', views.post_detail.as_view(), name='post_detail'),
-    path('post/new/', views.post_new.as_view(), name='post_new'),
-    path('post/<int:pk>/edit/', views.post_edit.as_view(), name='post_edit'),
-     path('post/<int:pk>/delete/',views.post_delete.as_view(),name='post_delete')
-
+    path('', views.MapList.as_view(), name='map_list'),
+    path('map/<int:pk>/', views.MapDetail.as_view(), name='map_detail'),
+    path('map/new/', views.MapNew.as_view(), name='map_new'),
+    path('map/<int:pk>/edit/', views.MapEdit.as_view(), name='map_edit'),
+    path('map/<int:pk>/delete/',views.MapDelete.as_view(),name='map_delete')
 ]

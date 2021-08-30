@@ -1,8 +1,8 @@
 from django import forms
-from .models import Post
+from .models import Map
 
-class PostForm(forms.ModelForm):
+class MapForm(forms.ModelForm):
 
     class Meta:
-        model = Post
-        fields = ('場所', 'ヒント',)
+        model = Map
+        fields = ("place","hint",)

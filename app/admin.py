@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Map
 
-admin.site.register(Post)
+admin.site.register(Map)
 # Register your models here.
