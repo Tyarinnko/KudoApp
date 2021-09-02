@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{{% if user.is_authenticated %}}
+
+{{ user.username }}さん、こんにちは。
+<a href = "{% url 'logout' %}" class="btn btn-danger">ログアウト</a>
+
+{% else %}
+
+<p>ログインしていません</p>
+
+{% endif %}
+{% endblock %}
