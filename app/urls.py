@@ -7,5 +7,4 @@ urlpatterns = [
     path('map/new/', views.MapNew.as_view(), name='map_new'),
     path('map/<int:pk>/edit/', views.MapEdit.as_view(), name='map_edit'),
     path('map/<int:pk>/delete/',views.MapDelete.as_view(),name='map_delete'),
-    path('register',views.AccountRegistration.as_view(),name='registration')
 ]
