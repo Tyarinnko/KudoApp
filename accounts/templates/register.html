@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+    {% block content %}
+    <h1>新規登録</h1>
+
+{% if AccountCreate %}
+    <h1>登録完了!</h1>
+
+{% else %}
+<from method="post">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit">登録</button>
+
+</form>
+
+ <a class="btn btn-primary" href="{% url 'login'%}"><span class="glyphicon glyphicon-pencil">ログインはこちらから</span></a>
+{% endif %}
+
+{% endblock %}
+
+    

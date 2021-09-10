@@ -1,16 +1,19 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
-from .models import Account
+from django.contrib.auth.models import User
 
 class UserCreationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    nickname = forms.CharField()
+    email = forms.EmailField(required=True,label="メールアドレス")
+    nickname = forms.CharField(label="ニックネーム")
     password = forms.CharField(widget=forms.PasswordInput(),label="パスワード")
-    
     
     class Meta:
         model = User
         fields = ('username','email','nickname','password')
-        labels = {'username':"ユーザーID",'email':"メールアドレス",'nickname':"ニックネーム",}
-        
+
+    def save(self, commit=True):
+        user = super(UserCreationForm, self).save(commit=False)
+        user.email = self.cleaned_data["email"]
+        if commit:
+            user.save()
+        return user
