@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>ログアウトしますか？</h1>
+<button type="submit">ログアウトする</button>
+
+{% else %}
+<h1>ログインしてません</h1>
+
+</form>
+
+{% endif %}
+
+{% endblock %}

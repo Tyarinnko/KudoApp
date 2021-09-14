@@ -2,7 +2,6 @@
 {{% if user.is_authenticated %}}
 
 {{ user.username }}さん、こんにちは。
-<a href = "{% url 'logout' %}" class="btn btn-danger">ログアウト</a>
 
 {% else %}
 
