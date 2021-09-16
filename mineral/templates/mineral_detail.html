@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="col-auto">
+    <div class="post">
+        
+        {% if mineral.published_date %}
+        <div class="date">
+        {{ mineral.published_date }}
+        
+        <h2>{{ mineral.title }}</h2>
+        <p>{{ mineral.title|linebreaksbr }}</p>
+        
+        </div>
+        {% endif %}
+    </div>
+</div>    
+{% endblock %}
