@@ -5,5 +5,5 @@ class MapForm(forms.ModelForm):
 
     class Meta:
         model = Map
-        fields = ("place","hint",)
+        fields = ("place","hint","tags")
         

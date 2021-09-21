@@ -6,10 +6,9 @@
         
         {% if mineral.published_date %}
         <div class="date">
-        {{ mineral.published_date }}
         
         <h2>{{ mineral.title }}</h2>
-        <p>{{ mineral.title|linebreaksbr }}</p>
+        <p>{{ mineral.text|linebreaksbr }}</p>
         
         </div>
         {% endif %}

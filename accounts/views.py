@@ -11,4 +11,5 @@ class RegisterForm(CreateView):
     
 class Logout(LoginRequiredMixin,TemplateView):
     template_name = 'logout.html'
+    
 # Create your views here.
