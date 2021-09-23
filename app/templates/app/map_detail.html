@@ -10,11 +10,7 @@
         <h2>{{ map.place }}</h2>
         <p>{{ map.hint|linebreaksbr }}</p>
         
-        <div class="tags">
-        {% for tag in map.tags.all %}
-            <a class="btn btn-success" href="/">{{ tag }}</a>
-        {% endfor %}
-        </div>
+        
         {% if user.is_authenticated %}
             <a class="btn btn-primary" href="{% url 'map_edit' pk=map.pk %}">更新</a>
             <a class="btn btn-danger" href="{% url 'map_delete' pk=map.pk %}">削除</a>
