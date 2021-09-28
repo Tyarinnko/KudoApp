@@ -10,6 +10,9 @@
         <h2>{{ map.place }}</h2>
         <p>{{ map.hint|linebreaksbr }}</p>
         
+        {% for mineral in map.mineral.all %}
+        <a class="btn btn-secondry" href="{% url 'mineral_detail' pk=mineral.pk %}">{{mineral}}</a>
+        {% endfor %}
         
         {% if user.is_authenticated %}
             <a class="btn btn-primary" href="{% url 'map_edit' pk=map.pk %}">更新</a>

@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Mineral,Tag
+from .models import Mineral
 
 admin.site.register(Mineral)
-admin.site.register(Tag)
+
 # Register your models here.
