@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Map,Image
+from .models import Map
 
 admin.site.register(Map)
-admin.site.register(Image)
+
 # Register your models here.

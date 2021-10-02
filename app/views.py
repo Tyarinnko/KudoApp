@@ -31,7 +31,11 @@ class MapNew(CreateView):
     form_class = MapForm
     success_url = '/'
 
+    def post(self, request, *arg,**kwargs):
+        print(self.request.POST.items())
+        return super().post(request, *arg,**kwargs)
     def form_valid(self, form):
+        print(self.request)
         form.instance.author_id = self.request.user.id
         form.instance.published_date = timezone.now()
         return super(MapNew,self).form_valid(form)
