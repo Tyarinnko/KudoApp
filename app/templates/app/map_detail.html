@@ -8,10 +8,15 @@
         {{ map.published_date }}
         
         <h2>{{ map.place }}</h2>
+        
+        {% for image in map.images %}
+        <img src='{{ MEDIA_URL }}{{ map.image }}' style="width=300px;height=auto">
+        {% endfor %}
+        
         <p>{{ map.hint|linebreaksbr }}</p>
         
         {% for mineral in map.mineral.all %}
-        <a class="btn btn-secondry" href="{% url 'mineral_detail' pk=mineral.pk %}">{{mineral}}</a>
+        <a class="btn btn-success" href="{% url 'mineral_detail' pk=mineral.pk %}">{{mineral}}</a>
         {% endfor %}
         
         {% if user.is_authenticated %}
