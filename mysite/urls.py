@@ -21,5 +21,5 @@ urlpatterns = [
     path('', include('app.urls')),
     path('register/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('mineral/',include('mineral.urls'))
+    path('mineral/',include('mineral.urls')),
 ]

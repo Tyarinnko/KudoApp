@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'accounts.apps.AccountsConfig',
     'mineral.apps.MineralConfig',
-    'taggit',
 ]
 
 MIDDLEWARE = [
