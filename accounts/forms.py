@@ -21,8 +21,8 @@ class UserCreationForm(UserCreationForm):
             user.save()
         return user
 
-class TeamEditForm(forms.ModelForm):
+class TeamNewForm(forms.ModelForm):
 
     class Meta:
         model = Team
-        fields = ('owner','title','text')
+        fields = ('title','text')

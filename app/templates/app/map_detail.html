@@ -8,8 +8,8 @@
         {{ map.published_date }}
         
         <h2>{{ map.place }}</h2>
+        <div class="col-auto"><img src='/media/{{ map.image }}'></div>
         
-        <img src='{{ MEDIA_URL }}{{ map.image }}'>
 
         <p>{{ map.hint|linebreaksbr }}</p>
         
@@ -25,5 +25,5 @@
         </div>
         {% endif %}
     </div>
-</div>    
+</div>     
 {% endblock %}

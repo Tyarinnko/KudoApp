@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Account,Team,Friends
+from .models import Account,Team
 
 admin.site.register(Account)
 admin.site.register(Team)
-admin.site.register(Friends)
+
 # Register your models here.
