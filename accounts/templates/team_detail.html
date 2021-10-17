@@ -7,12 +7,12 @@
 
         <p>{{ team.text|linebreaksbr }}</p>
         
-        {% if user.is_authenticated %}
+        {% if request.user == team.owner %}
         <a class="btn btn-primary" href="{% url 'team_edit' pk=team.pk %}">更新</a>
         {% endif %}
         
-        {% if user.is_logged_in %}
-        <a class="btn btn-success"　type="submit">チームに参加</a>
+        {% if not request.user == team.menber %}
+        <a class="btn btn-success"　type="submit" href="/">チームに参加</a>
         {% endif %}
     </div>
 </div>     

@@ -17,7 +17,7 @@
             <a class="btn btn-success" href="{% url 'mineral_detail' pk=mineral.pk %}">{{mineral}}</a>
         {% endfor %}
         
-        {% if user.is_authenticated %}
+        {% if request.user == map.author %}
             <a class="btn btn-primary" href="{% url 'map_edit' pk=map.pk %}">更新</a>
             <a class="btn btn-danger" href="{% url 'map_delete' pk=map.pk %}">削除</a>
         {% endif %}
