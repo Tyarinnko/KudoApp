@@ -11,7 +11,7 @@
         <a class="btn btn-primary" href="{% url 'team_edit' pk=team.pk %}">更新</a>
         {% endif %}
         
-        {% if not request.user == team.menber %}
+        {% if not is_menber %}
         <a class="btn btn-success"　type="submit" href="/">チームに参加</a>
         {% endif %}
     </div>

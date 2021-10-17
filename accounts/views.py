@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
@@ -22,6 +23,17 @@ class TeamList(ListView):
 class TeamDetail(DetailView):
     template_name = 'team_detail.html'
     model = Team
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        team = self.get_object()
+        requested_user = self.request.user
+        ctx['is_menber']=False
+        for joined_user in team.menber.all():
+            if joined_user == requested_user:
+                ctx["is_menber"]=True
+                break 
+        return ctx
 
 class TeamNew(CreateView):
     template_name = 'team_edit.html'
