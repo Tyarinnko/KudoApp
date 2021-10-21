@@ -12,7 +12,12 @@
         {% endif %}
         
         {% if not is_menber %}
-        <a class="btn btn-success"　type="submit" href="/">チームに参加</a>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success"　type="submit">チームに参加</button>
+        </form>
+        {% else %}
+            <button class="btn btn-secondary" disabled="disabled">所属中！</button>
         {% endif %}
     </div>
 </div>     

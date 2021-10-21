@@ -1,9 +1,10 @@
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,TemplateView,ListView,DetailView,UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.base import RedirectView
 from .models import Team,User
 from django.utils import timezone
 from accounts.forms import TeamNewForm
@@ -35,6 +36,13 @@ class TeamDetail(DetailView):
                 break 
         return ctx
 
+    def post(self, request, *args, **kwargs):
+        join_user = request.user
+        join_team = self.get_object()
+        join_team.menber.add(join_user)
+        join_team.save()
+        return self.get(request, *args, **kwargs)
+    
 class TeamNew(CreateView):
     template_name = 'team_edit.html'
     model = Team 
