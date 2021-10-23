@@ -5,9 +5,9 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView,TemplateView,ListView,DetailView,UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import RedirectView
-from .models import Team,User
+from .models import Team,User,TeamChat
 from django.utils import timezone
-from accounts.forms import TeamNewForm
+from accounts.forms import TeamNewForm,TeamChatForm
 
 class RegisterForm(CreateView):
     form_class = UserCreationForm
@@ -64,4 +64,18 @@ class TeamEdit(UpdateView):
         form.instance.owner = User.objects.get(id=self.request.user.id)
         form.instance.published_date = timezone.now()
         return super(TeamEdit,self).form_valid(form)
+
+class TeamChat(CreateView,ListView):
+    template_html = 'team_chat.html'
+    model = TeamChat
+    from_class = TeamChatForm
+    success_url = '/'
+
+
+    def form_valid(self, form):
+        form.instance.menber_id = self.request.user.id
+        form.instance.published_date = timezone.now()
+        return super(TeamChat,self).form_valid(form)
+        
+    
 # Create your views here.

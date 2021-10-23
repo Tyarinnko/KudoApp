@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Team
+from django.db.models.base import Model
+from django.forms.models import ModelForm
+from .models import Team,TeamChat
 
 class UserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True,label="メールアドレス")
@@ -24,3 +26,9 @@ class TeamNewForm(forms.ModelForm):
     class Meta:
         model = Team
         fields = ('title','text')
+
+class TeamChatForm(forms.ModelForm):
+
+    class Meta:
+        models = TeamChat
+        fields = ('text',)

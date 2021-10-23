@@ -1,3 +1,4 @@
+from typing import Text
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
@@ -17,6 +18,13 @@ class Team(models.Model):
 
     def __str__(self):
         return '<' + self.title + '(' + str(self.owner) + ')' + '>'
+
+class TeamChat(models.Model):
+    teamid = models.ForeignKey(Team,on_delete=models.CASCADE,related_name='team_id')
+    menber = models.ManyToManyField(User)
+    text = models.TextField("コメント",max_length=30)
+    published_date = models.DateTimeField(auto_now=True)
+
 
 # class TeamMenber(models.Model):
 #     user = models.ForeignKey(User,on_delete=models.CASCADE)
