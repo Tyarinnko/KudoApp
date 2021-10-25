@@ -20,11 +20,9 @@ class Team(models.Model):
         return '<' + self.title + '(' + str(self.owner) + ')' + '>'
 
 class TeamChat(models.Model):
-    teamid = models.ForeignKey(Team,on_delete=models.CASCADE,related_name='team_id')
-    menber = models.ManyToManyField(User)
-    text = models.TextField("コメント",max_length=30)
-    published_date = models.DateTimeField(auto_now=True)
-
+    team_id = models.OneToOneField(Team,on_delete=models.CASCADE,)
+    menber = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField("コメント",max_length=100)
 
 # class TeamMenber(models.Model):
 #     user = models.ForeignKey(User,on_delete=models.CASCADE)
