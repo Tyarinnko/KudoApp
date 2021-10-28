@@ -30,5 +30,5 @@ class TeamNewForm(forms.ModelForm):
 class TeamChatForm(forms.ModelForm):
 
     class Meta:
-        models = TeamChat
+        model = TeamChat
         fields = ('text',)

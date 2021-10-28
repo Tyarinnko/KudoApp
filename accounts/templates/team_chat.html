@@ -9,9 +9,14 @@
     <button type="submit" class="save btn btn-primary">送信</button>
 </form>
 
+<div>
 {% for teamchat in object_list %}
 <div>
-    {{ teamchat.menber }}
-    {{ teamchat.text|linebreaksbr }}
+    <hr>
+    <div>{{teamchat.text}}</div>
+    <div>{{teamchat.menber|linebreaksbr}}</div>
+    <div>{{teamchat.published_at}}</div>
 </div>
 {% endfor %}
+</div>
+{% endblock %}
