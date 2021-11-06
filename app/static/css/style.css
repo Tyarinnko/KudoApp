@@ -1,0 +1,52 @@
+.d-block {
+    font-size: large;
+}
+
+.chat {
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
+    color: #FFF;
+    background: #6eb7ff;
+    border-bottom: solid 6px #3f87ce;
+    box-shadow: 0 3px 6px #00000040;
+    border-radius: 9px;
+    display: inline-block;
+}
+
+.chat p {
+    margin: 0; 
+    padding: 0;
+}
+
+.chat .name {
+    color:#696969;
+}
+
+.chatbox{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+.chatbox:before, .chatbox:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+.chatbox:before {left: 10px;}
+.chatbox:after {right: 10px;}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    color: #FFF;
+    background-color: #343a40;
+
+}
+

@@ -1,10 +1,11 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <h2>チーム作成</h2>
-    <form method="POST" class="post-form">
-        {% csrf_token %}
+<main class="container"><h2 class="card-title text-center">チーム作成</h2>
+    <form action="" method="POST" class="text-center">
         {{ form.as_p }}
         <button type="submit" class="save btn btn-primary">作成</button>
+        {% csrf_token %}
     </form>
+</main>
 {% endblock %}

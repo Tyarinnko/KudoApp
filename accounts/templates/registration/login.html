@@ -1,13 +1,16 @@
 {% extends 'app/base.html' %}
-    {% block content %}
-    <h1>ログイン</h1>
+{% block content %}
+<main class="container">
+    <h1 class="card-title text-center">ログイン</h1>
         {% if form.errors %}
         <p>ユーザーID、パスワードが一致しません。</p>
         {% endif %}
-        <form method="POST">
+        <form method="POST" class="card-title text-center">
             {% csrf_token %}
             {{ form.as_p}}
-            <button type = "submit">ログイン</button>
+            <div align="center">
+                <button type="submit">ログイン</button>
+            </div>
         </form>
-    
+</main>    
     {% endblock %}

@@ -2,6 +2,7 @@ import mineral
 from django.shortcuts import render
 from django.views.generic import ListView,DetailView,CreateView
 from .models import Mineral
+from app.models import Map
 from mineral.forms import MineralForm
 from django.shortcuts import get_object_or_404, render
 from django.views.generic.base import ContextMixin
@@ -17,6 +18,7 @@ class MineralList(ListView):
 class MineralDetail(DetailView):
     template_name = "mineral_detail.html"
     model = Mineral
+
     
 class MineralNew(CreateView):
     model = Mineral

@@ -1,5 +1,6 @@
 {% extends 'app/base.html' %}
 {% block content %}
+<main class="container">
 <div class="col-auto">
     <div class="post">
         
@@ -18,8 +19,9 @@
         </form>
         {% else %}
             <button class="btn btn-secondary" disabled="disabled">所属中！</button>
-            <a class="btn btn-warning" href="{% url 'team_chat' pk=teamchat.teamid %}">チャットに参加</button>
+            <a class="btn btn-warning" href="{% url 'team_chat' teamid=team.id %}">チャットに参加</a>
         {% endif %}
     </div>
-</div>     
+</div>
+</main>     
 {% endblock %}

@@ -1,5 +1,7 @@
 {% extends 'app/base.html' %}
 {% block content %}
+<main class="container">
+    <div class="row">
     {% for mineral in object_list %}
     <div class="col-auto">
         <div class="card" style="width: 15rem;">
@@ -11,5 +13,9 @@
             </div>
         </div>
     </div>
-    {% endfor %}          
+{% endfor %}          
+    </div>
+</main>
+
+
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.db.models import Count
+from django.db.models import Count, fields
 from django.forms.forms import Form
 from django.http import request
 from django.shortcuts import redirect, render
@@ -68,23 +68,25 @@ class TeamEdit(UpdateView):
         form.instance.published_date = timezone.now()
         return super(TeamEdit,self).form_valid(form)
 
-class TeamChat(CreateView,ListView):
-    template_html = 'team_chat.html'
+class TeamChat(CreateView, ListView):
+    template_name = 'team_chat.html'
     model = TeamChat
-    from_class = TeamChatForm
-    success_url = '/'  
+    form_class = TeamChatForm
+    # success_url = '/'  
+
+    def get_success_url(self):
+        success_url = self.request.path
+        return success_url
 
     def form_valid(self, form):
         form.instance.menber_id = self.request.user.id
-        form.instance.published_date = timezone.now()
+        form.instance.team_id = self.kwargs['teamid']
         return super(TeamChat,self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-         return super().get_context_data(**kwargs)
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.annotate(Count('team_id'))
+    def get_queryset(self, **kwargs):
+        queryset = self.model.objects.filter(team=self.kwargs['teamid'])
+        queryset.order_by('published_at')
+        return queryset
 
     
             

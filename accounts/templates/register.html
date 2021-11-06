@@ -1,21 +1,18 @@
 {% extends 'app/base.html' %}
 {% block content %}
-<h1>新規登録</h1>
+<main class="container">
+<h1 class="card-title text-center">新規登録</h1>
 
 {% if AccountCreate %}
-<h1>登録完了!</h1>
+<h1 class="card-title text-center">登録完了!</h1>
 
 {% else %}
-<form method="post">
-
-{% csrf_token %}
-
-{{ form.as_p }}
-
-<button type="submit">登録</button>
-
+<form method="POST">
+    {{ form.as_p }}
+    <button type="submit">登録</button>
+    {% csrf_token %}
 </form>
-
+</main>
 {% endif %}
 
 {% endblock %}

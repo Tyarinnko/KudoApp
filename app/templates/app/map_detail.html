@@ -1,14 +1,16 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
+<div class="container">
 <div class="col-auto">
     <div class="post">
         {% if map.published_date %}
         <div class="date">
         {{ map.published_date }}
+        </div>
         
         <h2>{{ map.place }}</h2>
-        <div class="col-auto"><img src='/media/{{ map.image }}'></div>
+        <div class="col-auto"><img src='/media/{{ map.image }}' style="width: 30rem;"></div>
         
 
         <p>{{ map.hint|linebreaksbr }}</p>
@@ -22,8 +24,8 @@
             <a class="btn btn-danger" href="{% url 'map_delete' pk=map.pk %}">削除</a>
         {% endif %}
         
-        </div>
         {% endif %}
     </div>
+</div>
 </div>     
 {% endblock %}

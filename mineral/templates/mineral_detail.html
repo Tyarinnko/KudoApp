@@ -1,18 +1,21 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
+<main class="container">
 <div class="col-auto">
     <div class="post">
         
         {% if mineral.published_date %}
-        <div class="date">
+        <div class="card-title text-center">
         
         <h2>{{ mineral.title }}</h2>
         <p>{{ mineral.text|linebreaksbr }}</p>
         
         </div>
         {% endif %}
-    
+    </div>
+</div>
+
     {% for map in mineral.map.all %}
     <div class="col-auto">
         <div class="card" style="width: 15rem;">
@@ -26,6 +29,5 @@
     </div>
     {% endfor %}        
 
-    </div>
-</div>    
+</main>
 {% endblock %}

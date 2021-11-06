@@ -1,9 +1,16 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <h2>地図作成</h2>
-    <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-primary">作成</button>
-    </form>
+
+<main class="container">
+    <h2 class="card-title text-center">地図作成</h2>
+    <div class="card-title text-center" >
+        <form method="POST" class="post-form" class="card-title text-center">{% csrf_token %}
+            {{ form.as_p }}
+            <div class="card-title text-center" >
+            <button type="submit" class="save btn btn-primary">作成</button>
+            </div>
+        </form>
+    </div>
+</main>
 {% endblock %}

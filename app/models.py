@@ -7,13 +7,12 @@ from mineral.models import Mineral
 class Map(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     place = models.CharField("場所",max_length=200)
-    image = models.ImageField(upload_to = 'image/', blank=True, null=True)
+    image = models.ImageField("写真",upload_to = 'image/', blank=True, null=True)
     hint = models.TextField("ヒント")
-    mineral = models.ManyToManyField(Mineral)
+    mineral = models.ManyToManyField(Mineral,verbose_name="鉱石")
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(auto_now=True)
     
-
     def __str__(self):
         return self.place
         

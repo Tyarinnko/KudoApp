@@ -1,17 +1,20 @@
 {% extends 'app/base.html' %}
 {% block content %}
-
-<h2>チームチャット</h2>
-
+<main class="container">
+<h2 class="card-title text-center">チームチャット</h2>
 <form method="POST" class="post-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="save btn btn-primary">送信</button>
 </form>
 
+<div class="chatbox">
 {% for teamchat in object_list %}
-<div>
-    {{ teamchat.menber }}
-    {{ teamchat.text|linebreaksbr }}
-</div>
+<div class="chat">
+    <p>{{teamchat.text|linebreaksbr}}</p>
+    <p class="name">{{teamchat.menber}}　　{{teamchat.published_at}}</p>
+</div><br>
 {% endfor %}
+</div>
+</main>
+{% endblock %}
