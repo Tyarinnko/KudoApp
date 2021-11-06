@@ -20,7 +20,7 @@ from django.urls import reverse
 class MapList(ListView):
     model = Map
     queryset = Map.objects.order_by('-created_date')
-    pagenate_by = 3
+    paginate_by = 20
 
 class MapDetail(DetailView):
     template_name = 'app/map_detail.html'

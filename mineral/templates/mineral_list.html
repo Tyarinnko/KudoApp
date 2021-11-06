@@ -7,15 +7,15 @@
         <div class="card" style="width: 15rem;">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
             <div class="card-body">
-                <h3 class="card-title"></a>{{ mineral.title }}</h3>
+                <h3 class="card-title">{{ mineral.title }}</h3>
                 <p class="card-text">{{ mineral.text|linebreaksbr }}</p>
                 <a href="{% url 'mineral_detail' mineral.pk %}" class="btn btn-primary">詳細</a>
             </div>
         </div>
     </div>
-{% endfor %}          
+    {% endfor %}
     </div>
 </main>
-
+{% include 'app/pagination.html' %}
 
 {% endblock %}
