@@ -13,6 +13,7 @@
         <a class="btn btn-primary" href="{% url 'team_edit' pk=team.pk %}">更新</a>
         {% endif %}
         
+        {% if user.is_authenticated %}
         {% if not is_menber %}
         <form method="post">
             {% csrf_token %}
@@ -21,6 +22,7 @@
         {% else %}
             <button class="btn btn-secondary" disabled="disabled">所属中！</button>
             <a class="btn btn-warning" href="{% url 'team_chat' teamid=team.id %}">チャットに参加</a>
+        {% endif %}
         {% endif %}
         </div>
     </div>
