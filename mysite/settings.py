@@ -32,7 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 
-ALLOWED_HOSTS = ['*','.pythonanywhere.com','.amazonaws.com']
+ALLOWED_HOSTS = ['*','.pythonanywhere.com','tyari.pythonanywhere.com']
 
 
 # Application definition
@@ -148,3 +148,5 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True

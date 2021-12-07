@@ -7,8 +7,7 @@
         <h2>{{ team.title }}</h2>      
 
         <p>{{ team.text|linebreaksbr }}</p>
-
-        <div class="card-title text-center">
+        
         {% if request.user == team.owner %}
         <a class="btn btn-primary" href="{% url 'team_edit' pk=team.pk %}">更新</a>
         {% endif %}
@@ -24,7 +23,6 @@
             <a class="btn btn-warning" href="{% url 'team_chat' teamid=team.id %}">チャットに参加</a>
         {% endif %}
         {% endif %}
-        </div>
     </div>
 </div>
 </main>     

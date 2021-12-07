@@ -23,7 +23,6 @@ class Logout(LoginRequiredMixin,TemplateView):
 class TeamList(ListView):
     template_name = 'team_list.html'
     model = Team
-    paginate_by = 20
 
 class TeamDetail(DetailView):
     template_name = 'team_detail.html'
@@ -73,7 +72,6 @@ class TeamChat(CreateView, ListView):
     template_name = 'team_chat.html'
     model = TeamChat
     form_class = TeamChatForm
-    paginate_by = 20
     # success_url = '/'  
 
     def get_success_url(self):

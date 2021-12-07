@@ -14,19 +14,12 @@ from django.utils import timezone
 class MineralList(ListView):
     template_name = "mineral_list.html"
     model = Mineral
-    paginate_by = 20
     
 class MineralDetail(DetailView):
     template_name = "mineral_detail.html"
     model = Mineral
-    paginate_by = 20
-    
-    def get_context_data(self, **kwargs):
-        ctx =super().get_context_data(**kwargs)
-        mineral = self.get_object()
-        ctx['maps']=mineral.map_set.all()
-        return ctx
 
+    
 class MineralNew(CreateView):
     model = Mineral
     form_class = MineralForm
